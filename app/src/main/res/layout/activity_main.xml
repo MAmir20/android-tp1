@@ -13,41 +13,39 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Operande1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.008" />
 
-        <TextView
-            android:id="@+id/text2"
+        <EditText
+            android:id="@+id/op1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Operande2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text1"
-            app:layout_constraintVertical_bias="0.04" />
+            android:ems="10"
+            android:hint="Operande 1"
+            android:textSize="70px"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/op2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Operande 2"
+            android:textSize="70px"
+            android:inputType="numberDecimal" />
+
         <Spinner
             android:id="@+id/spinner"
-            android:layout_width="409dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
+            android:textSize="70px"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="@+id/text1"
             tools:layout_editor_absoluteX="0dp" />
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonCalc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Calculer"
+            android:textSize="70px"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="192dp" />
 
