@@ -23,17 +23,24 @@ public class MainActivity extends AppCompatActivity {
         EditText op1 = findViewById(R.id.op1);
         EditText op2 = findViewById(R.id.op2);
         Button btnCalc = findViewById(R.id.buttonCalc);
+        Button btnHis = findViewById(R.id.buttonHist);
         Spinner sp=findViewById(R.id.spinner);
         String[] operations=getResources().getStringArray(R.array.operation);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this,
                 R.layout.item,
-                R.id.itemTextView,
+                R.id.itemTextView2,
                 operations
         );
         sp.setAdapter(adapter);
-
+        btnHis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, HistoriqueActivity.class);
+                startActivity(intent);
+            }
+        });
         btnCalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 if(test) {
+                    DatabaseOpenHelper db = new DatabaseOpenHelper(MainActivity.this);
+                    db.create(valOp1,valOp2,resultat,operation);
                     intent.putExtra("resultat", resultat+"");
                     startActivity(intent);
                 }

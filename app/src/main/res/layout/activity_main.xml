@@ -49,5 +49,14 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="192dp" />
 
+        <Button
+            android:id="@+id/buttonHist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="70px"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="192dp"
+            android:text="Historique" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
