@@ -2,6 +2,7 @@ package com.example.android_tp1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         CheckBox ck1=findViewById(R.id.ck1);
         CheckBox ck2=findViewById(R.id.ck2);
         LinearLayout layout=findViewById(R.id.layout);
+        Button btndb=findViewById(R.id.button2);
 
         btn.setOnClickListener(new View.OnClickListener() {
 
@@ -185,6 +187,13 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "validation réussie", Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+        btndb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentdb=new Intent(MainActivity.this,DisplayActivity.class);
+                startActivity(intentdb);
             }
         });
     }
