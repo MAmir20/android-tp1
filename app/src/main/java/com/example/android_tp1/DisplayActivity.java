@@ -57,7 +57,7 @@ public class DisplayActivity extends AppCompatActivity {
                 this,
                 dataList,
                 R.layout.item,
-                new String[] {"id","lname","fname","age","genre","pays","ck1","ck2"},
+                new String[] {"_id","lname","fname","age","genre","pays","ck1","ck2"},
                 new int[]{R.id.dbid,R.id.dbln,R.id.dbfn,R.id.dbage,R.id.dbgenre,R.id.dbpays,R.id.dbck1,R.id.dbck2}
         );
         lv.setAdapter(sadapter);

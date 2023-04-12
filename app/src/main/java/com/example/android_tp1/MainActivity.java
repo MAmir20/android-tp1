@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         String[] pays = getResources().getStringArray(R.array.pays);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this,
-                R.layout.item,
+                R.layout.item_sp,
                 R.id.itemTextView,
                 pays
         );
