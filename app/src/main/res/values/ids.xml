@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="fnerror" type="id"/>
+    <item name="lnerror" type="id"/>
+    <item name="ageerror" type="id"/>
+    <item name="ckerror" type="id"/>
+    <item name="payserror" type="id"/>
+</resources>
