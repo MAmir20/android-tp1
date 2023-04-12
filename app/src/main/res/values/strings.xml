@@ -3,13 +3,11 @@
     <string-array name="pays">
         <item> Tunisie </item>
         <item> Algérie </item>
-        <item> Libie </item>
-        <item> Marroc </item>
+        <item> Libye </item>
+        <item> Maroc </item>
         <item> Paris </item>
         <item> UK </item>
     </string-array>
-
-
 
 
 </resources>

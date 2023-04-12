@@ -2,6 +2,7 @@ package com.example.android_tp1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         String[] pays = getResources().getStringArray(R.array.pays);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this,
-                R.layout.item,
+                R.layout.item_sp,
                 R.id.itemTextView,
                 pays
         );
@@ -35,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
         EditText age=findViewById(R.id.age);
         RadioButton rb1=findViewById(R.id.Rb1);
         RadioButton rb2=findViewById(R.id.Rb2);
+        RadioGroup gender=findViewById(R.id.gender);
         CheckBox ck1=findViewById(R.id.ck1);
         CheckBox ck2=findViewById(R.id.ck2);
         LinearLayout layout=findViewById(R.id.layout);
+        Button btndb=findViewById(R.id.button2);
 
         btn.setOnClickListener(new View.OnClickListener() {
 
@@ -98,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
-                if(Integer.parseInt(age.getText().toString())<18){
+                if(age.getText().toString().isEmpty() || Integer.parseInt(age.getText().toString())<18){
                     if(ageerror==null) {
                         ageerror = new TextView(getApplicationContext());
                         ageerror.setId(R.id.ageerror);
@@ -170,9 +174,26 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 if(test){
+                    DatabaseOpenHelper db = new DatabaseOpenHelper(MainActivity.this);
+                    RadioButton rb = (RadioButton) findViewById(gender.getCheckedRadioButtonId());
+                    db.ajouter(fname.getText().toString(),
+                            lname.getText().toString(),
+                            Integer.parseInt(age.getText().toString()),
+                            rb.getText().toString(),
+                            sp.getSelectedItem().toString(),
+                            ck1.isChecked()?1:0,
+                            ck2.isChecked()?1:0
+                    );
                     Toast.makeText(getApplicationContext(), "validation réussie", Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+        btndb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentdb=new Intent(MainActivity.this,DisplayActivity.class);
+                startActivity(intentdb);
             }
         });
     }
