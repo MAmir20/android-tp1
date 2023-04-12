@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         EditText age=findViewById(R.id.age);
         RadioButton rb1=findViewById(R.id.Rb1);
         RadioButton rb2=findViewById(R.id.Rb2);
+        RadioGroup gender=findViewById(R.id.gender);
         CheckBox ck1=findViewById(R.id.ck1);
         CheckBox ck2=findViewById(R.id.ck2);
         LinearLayout layout=findViewById(R.id.layout);
@@ -98,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
-                if(Integer.parseInt(age.getText().toString())<18){
+                if(age.getText().toString().isEmpty() || Integer.parseInt(age.getText().toString())<18){
                     if(ageerror==null) {
                         ageerror = new TextView(getApplicationContext());
                         ageerror.setId(R.id.ageerror);
@@ -170,6 +172,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 if(test){
+                    DatabaseOpenHelper db = new DatabaseOpenHelper(MainActivity.this);
+                    RadioButton rb = (RadioButton) findViewById(gender.getCheckedRadioButtonId());
+                    db.ajouter(fname.getText().toString(),
+                            lname.getText().toString(),
+                            Integer.parseInt(age.getText().toString()),
+                            rb.getText().toString(),
+                            sp.getSelectedItem().toString(),
+                            ck1.isChecked()?1:0,
+                            ck2.isChecked()?1:0
+                    );
                     Toast.makeText(getApplicationContext(), "validation réussie", Toast.LENGTH_SHORT).show();
                 }
 
